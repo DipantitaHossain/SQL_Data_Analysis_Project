@@ -8,13 +8,17 @@ Find the companies that have the most job openings
 SELECT
     company_dim.name as company_name,
     Count(job_postings_fact.company_id) AS total_job_count
-FROM company_dim
-LEFT JOIN job_postings_fact ON
-job_postings_fact.company_id=company_dim.company_id
+FROM 
+    company_dim
+LEFT JOIN 
+    job_postings_fact ON
+    job_postings_fact.company_id=company_dim.company_id
 
-GROUP BY company_name
+GROUP BY 
+    company_name
 
-ORDER BY total_job_count DESC
+ORDER BY 
+    total_job_count DESC
 
 LIMIT 10;
 
